@@ -1,83 +1,40 @@
 import React, { Component } from "react";
+import { Switch, Route } from 'react-router-dom';
+import iphone from "../assets/iphone.png";
 import "./App.css";
+import Header from "./layout/Header/Header";
+import HowItWorks from "./pages/How-it-works/How-it-works";
+import Home from "./pages/Home/Home";
+import Register from "./pages/Register/Register";
 
 class App extends Component {
   render() {
-    return <div className="app">
-        <section className="hero is-info is-large">
-          <div className="hero-head">
-            <nav className="navbar">
-              <div className="container">
-                <div className="navbar-brand">
-                  <a className="navbar-item" href="/">
-                    <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
-                  </a>
-                  <span className="navbar-burger burger" data-target="navbarMenuHeroB">
-                    <span />
-                    <span />
-                    <span />
-                  </span>
-                </div>
-                <div id="navbarMenuHeroB" className="navbar-menu">
-                  <div className="navbar-end">
-                    <a className="navbar-item is-active" href="/">
-                      Home
-                    </a>
-                    <a className="navbar-item" href="/">
-                      Examples
-                    </a>
-                    <a className="navbar-item" href="/">
-                      Documentation
-                    </a>
-                    <span className="navbar-item">
-                      <a className="button is-info is-inverted" href="/">
-                        <span className="icon">
-                          <i className="fab fa-github" />
-                        </span>
-                        <span>Download</span>
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </nav>
-          </div>
+    return (
+      <div className="wrapper">
+        {/* H  E A D E R */}
+        <Header/>
 
-          <div className="hero-body">
-            <div className="container has-text-centered">
-              <p className="title">Title</p>
-              <p className="subtitle">Subtitle</p>
+        <section id="hero">
+          <div className="container">
+            <div className="columns is-multiline align-items-center justify-content-center">
+              <div className="column is-12-mobile is-5-tablet is-5-desktop">
+                <figure className="image">
+                  <img src={iphone} alt="Demo" />
+                </figure>
+              </div>
+              <div className="column is-12-mobile is-7-tablet is-7-desktop">
+                {/* R O U T E R  */}
+                <Switch>
+                  <Route exact path='/' component={ Home } />
+                  <Route path='/register' component={ Register } />
+                  <Route path='/howitworks' component={ HowItWorks } />
+                </Switch>
+              </div>
             </div>
           </div>
-
-          <div className="hero-foot">
-            <nav className="tabs is-boxed is-fullwidth">
-              <div className="container">
-                <ul>
-                  <li className="is-active">
-                  <a href="/">Overview</a>
-                  </li>
-                  <li>
-                  <a href="/">Modifiers</a>
-                  </li>
-                  <li>
-                  <a href="/">Grid</a>
-                  </li>
-                  <li>
-                  <a href="/">Elements</a>
-                  </li>
-                  <li>
-                  <a href="/">Components</a>
-                  </li>
-                  <li>
-                  <a href="/">Layout</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
         </section>
-      </div>;
+      </div>
+    );
   }
 }
 

@@ -1,4 +1,36 @@
-$info: red;
+$info: #f6f8f9;;
+$primary: #0095f7;
+
+
+.is-transparent{
+  background-color: transparent !important;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}
+
+.pos-fixed {
+  position: fixed;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
 
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
 // IMPORT EVERYTHING IN BASE
@@ -9,7 +41,5 @@ $info: red;
 
 // IMPORT SOME COMPONENTS
 @import "../../node_modules/bulma/sass/components/navbar.sass";
-@import "../../node_modules/bulma/sass/components/tabs.sass";
 
-@import "../../node_modules/bulma/sass/layout/hero.sass";
 @import "../../node_modules/bulma/sass/grid/columns.sass";

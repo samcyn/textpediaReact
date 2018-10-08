@@ -1,3 +1,42 @@
-.app {
-  text-align: center;
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
+  background: #f6f8f9;
+}
+
+.navbar {
+  box-shadow: none !important;
+  padding: 8px 0;
+  height: 70px;
+  max-height: 70px;
+}
+
+#hero {
+  z-index: 10;
+}
+
+#hero span {
+  font-weight: 400;
+  color: #0095f7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#hero h1 {
+  font-size: 50px;
+  font-weight: 300;
+}
+
+#hero p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8da2b5;
+  margin-bottom: 0px;
+  padding: 0px;
+  letter-spacing: 0.05em;
+}
+
+.image img{
+  max-width: 445px;
+  margin: 0 auto;
 }
