@@ -1,0 +1,15 @@
+$info: red;
+
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+// IMPORT EVERYTHING IN BASE
+@import "../../node_modules/bulma/sass/base/_all.sass";
+
+// IMPORT EVERYTHING IN ELEMENTS
+@import "../../node_modules/bulma/sass/elements/_all.sass";
+
+// IMPORT SOME COMPONENTS
+@import "../../node_modules/bulma/sass/components/navbar.sass";
+@import "../../node_modules/bulma/sass/components/tabs.sass";
+
+@import "../../node_modules/bulma/sass/layout/hero.sass";
+@import "../../node_modules/bulma/sass/grid/columns.sass";
