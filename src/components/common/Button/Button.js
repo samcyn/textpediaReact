@@ -1,3 +1,8 @@
+/**
+ * created by Samson Iyanda on 10-10-2018
+ */
+//
+
 import React from "react";
 import "./Button.css";
 

@@ -1,3 +1,8 @@
+/**
+ * created by Samson Iyanda on 09-10-2018
+ */
+//
+
 import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import "react-phone-number-input/style.css";
@@ -7,23 +12,23 @@ import API from "../../../api/api";
 
 import "./Confirmation.css";
 import Button from "../../common/Button/Button";
-import { validateToken } from "../../../utils";
+import { validateToken, errorHandler } from "../../../utils";
 
 class Confirmation extends Component {
   state = {
-    token: '',
+    token: "",
     errors: {
-      token : {
+      token: {
         value: false,
         touched: false
       }
     },
     isLoading: false
-  }
+  };
 
-  handleChangle = (e) => {
+  handleChangle = e => {
     const { value, name } = e.target;
-    // validate email
+    // V A L I D A T E - E M A I L
     if (name === "token") {
       const tokenIsValid = validateToken(value);
       this.setState(prevState => {
@@ -37,15 +42,15 @@ class Confirmation extends Component {
               value: tokenIsValid
             }
           }
-        }
+        };
       });
     }
-  }
+  };
 
-  handleFormSubmit = (e) => {
+  // S U B M I T - F O R M
+  handleFormSubmit = e => {
     e.preventDefault();
-    //submit form
-    const jwt = this.props.location.state ? this.props.location.state.result : '';
+    const jwt = this.props.location.state ? this.props.location.state.result : "";
     const { token } = this.state;
 
     let data = {
@@ -54,37 +59,39 @@ class Confirmation extends Component {
         token: token
       }
     };
-    //show Loader 
+    //S H O W - L O A D E R
     this.setState({
       isLoading: true
     });
-    //post form data
-    API.post('confirm', data)
+    // P O S T - F O R M - D A T A
+    API.post("confirm", data)
       .then(result => {
         this.props.history.push({
-          pathname: '/success',
+          pathname: "/success",
           state: { result: result.data }
         });
-        // Hide loader
+        // H I D E - L O A D E R
         this.setState({
           isLoading: false
         });
       })
       .catch(err => {
-        alert(err.response.data);
-        // Hide loader
+        const message = errorHandler(err);
+        alert(message);
+        
+        // H I D E - L O A D E R
         this.setState({
           isLoading: false
         });
       });
-  }
+  };
 
   render() {
     const { token, errors, isLoading } = this.state;
     const jwt = this.props.location.state && this.props.location.state.result;
-    //Redirect if no JWT is supplied.....
+    // R E D I R C T - W H E N - N O - J W T  - I S - S U P P L I E D
     if (!jwt) {
-      return <Redirect to="/register"/>
+      return <Redirect to="/register" />;
     }
     return (
       <Fragment>
@@ -104,13 +111,21 @@ class Confirmation extends Component {
                 onChange={this.handleChangle}
               />
             </div>
-            {!errors.token.value && errors.token.touched && <p className="help has-text-danger">Invalid Token Supplied</p>}                        
+            {!errors.token.value &&
+              errors.token.touched && (
+                <p className="help has-text-danger">Invalid Token Supplied</p>
+              )}
           </div>
-          
+
           <div className="field ">
             <div className="control">
-              {/* reuseable component */}
-              <Button className={"is-primary "+ (isLoading ? "is-loading" : " ")} disabled={!errors.token.value && errors.token.touched }>Submit Token</Button>
+              {/* R E U S E A B L E  - C O M P O N E N T */}
+              <Button
+                className={"is-primary " + (isLoading ? "is-loading" : " ")}
+                disabled={!errors.token.value && errors.token.touched}
+              >
+                Submit Token
+              </Button>
             </div>
           </div>
         </form>

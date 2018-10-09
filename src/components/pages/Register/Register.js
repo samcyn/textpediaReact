@@ -1,14 +1,20 @@
+/**
+ * created by Samson Iyanda on 09-10-2018
+ */
+//
+
 import React, { Component, Fragment } from "react";
 import "react-phone-number-input/style.css";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
-// import ReactTelInput from "react-telephone-input";
-
+import { isValidPhoneNumber } from "react-phone-number-input";
+import ReactTelInput from "react-telephone-input";
+import "react-telephone-input/lib/withStyles";
 // A X I O S
 import API from "../../../api/api";
+import flags from "../../../assets/flags.png";
 
 import "./Register.css";
 import Button from "../../common/Button/Button";
-import { validateField } from "../../../utils";
+import { validateField, errorHandler } from "../../../utils";
 
 class Register extends Component {
   state = {
@@ -27,9 +33,8 @@ class Register extends Component {
     isSubmitting: false
   }
 
-  handlePhoneNumberChange = (phone) => {
+  handlePhoneNumberChange = (phone, countryName) => {
     const phoneValidation = isValidPhoneNumber(String(phone));
-    console.log(phoneValidation);
     this.setState(prevState => {
       return {
         phone: phone,
@@ -45,7 +50,7 @@ class Register extends Component {
     });
   }
 
-  handleChangle = (e) => {
+  handleChange = (e) => {
     const {value, name } = e.target;
     // validate email
     if (name === "email") {
@@ -96,7 +101,7 @@ class Register extends Component {
       });
     })
     .catch(err => {
-      const errMessage = err.response.data;
+      const errMessage = errorHandler(err);
       alert(errMessage);
       // H I D E L O A D E R
       this.setState({
@@ -112,18 +117,20 @@ class Register extends Component {
     return (
       <Fragment>
         <span>TRY TEXTPEDIA</span>
-        <h1>SIGN UP</h1>
+        <h1 className="is-size-1-desktop is-size-3-tablet is-size-3-mobile">SIGN UP</h1>
 
         <form className="form" onSubmit = { this.handleFormSubmit }>
           <div className="field">
             <label className="label has-text-primary">Phone Number</label>
             <div className="control">
-              <PhoneInput 
+              <ReactTelInput
                 className="input"
-                name="phone"
-                placeholder="Enter phone number"
-                value={ phone}
-                onChange={ this.handlePhoneNumberChange }/>
+                defaultCountry="ng"
+                flagsImagePath= { flags }
+                onChange={this.handlePhoneNumberChange}
+                value = {phone}
+                placeholder="Enter Phone Number"
+              />
             </div>
             {!errors.phone.value && errors.phone.touched && <p className="help has-text-danger">Invalid Phone Number</p>}            
           </div>
@@ -136,14 +143,14 @@ class Register extends Component {
                 name="email"
                 placeholder="Email Address"
                 value = { email }
-                onChange = { this.handleChangle }
+                onChange = { this.handleChange }
               />
             </div>
             {!errors.email.value && errors.email.touched && <p className="help has-text-danger">Email is Invalid</p>}            
           </div>
           <div className="field ">
             <div className="control">
-              {/* R E U S E A B L E C O M P O N E N T */}
+              {/* R E U S E A B L E - C O M P O N E N T */}
               <Button className={"is-primary " + (isSubmitting ? "is-loading" : " ")} 
                 disabled={(!errors.phone.value && errors.phone.touched) || (!errors.email.value && errors.email.touched)}>Sign Up</Button>
             </div>

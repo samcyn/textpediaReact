@@ -1,3 +1,9 @@
+/**
+ * created by Samson Iyanda on 08-10-2018
+ */
+//
+
+
 import React, { Component, Fragment } from "react";
 import { Switch, Route } from 'react-router-dom';
 import iphone from "../assets/iphone.png";
@@ -25,16 +31,15 @@ class App extends Component {
 
   render() {
     const { openNavBar }= this.state;
-    return (
-      <Fragment>
-        <div className={ "wrapper " + (openNavBar ? "nav-open" : " ")}>
+    return <Fragment>
+        <div className={"wrapper " + (openNavBar ? "nav-open" : " ")}>
           {/* H  E A D E R */}
-          <Header toggleNavBar = { this.navBarController }/>
+          <Header toggleNavBar={this.navBarController} />
 
           <section id="hero">
             <div className="container">
               <div className="columns is-multiline align-items-center justify-content-center">
-                <div className="column is-12-mobile is-5-tablet is-5-desktop">
+                <div className="column is-12-mobile is-5-tablet is-5-desktop is-hidden-mobile">
                   <figure className="image">
                     <img src={iphone} alt="Demo" />
                   </figure>
@@ -42,20 +47,19 @@ class App extends Component {
                 <div className="column is-12-mobile is-7-tablet is-7-desktop">
                   {/* R O U T E R  */}
                   <Switch>
-                    <Route exact path='/' component={ Home } />
-                    <Route exact path='/register' component={ Register } />
-                    <Route exact path='/howitworks' component={ HowItWorks } />
-                    <Route exact path='/confirmation' component={ Confirmation } />
-                    <Route exact path='/success' component={ Success } />
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/register" component={Register} />
+                    <Route exact path="/howitworks" component={HowItWorks} />
+                    <Route exact path="/confirmation" component={Confirmation} />
+                    <Route exact path="/success" component={Success} />
                   </Switch>
                 </div>
               </div>
             </div>
           </section>
         </div>
-        <SideBar/>
-      </Fragment>
-    );
+        <SideBar />
+      </Fragment>;
   }
 }
 

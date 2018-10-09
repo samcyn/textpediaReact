@@ -1,3 +1,8 @@
+/**
+ * created by Samson Iyanda on 10-10-2018
+ */
+//
+
 const isValidEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 
@@ -16,5 +21,16 @@ export const validateToken = (token) => {
   }
   else {
     return true;
+  }
+}
+
+export const errorHandler = (err) => {
+  // N E T W O R K - E R R O R
+  if (err.message) {
+    return err.message;
+  }
+  // S E R V E R - E R R O R
+  else if(err.response) {
+    return err.response.data;
   }
 }

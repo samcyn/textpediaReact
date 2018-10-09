@@ -1,3 +1,9 @@
+/**
+ * created by Samson Iyanda on 08-10-2018
+ */
+//
+
+
 .wrapper {
   height: 100vh;
   overflow: hidden;
@@ -5,11 +11,22 @@
   z-index: 1032;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
   .wrapper {
     height: auto;
     overflow: auto;
     padding-bottom: 50px;
+    min-height: 100vh;
+  }
+  #hero {
+    padding-top: 70px !important;
+  }
+}
+
+@media (max-height: 650px) {
+  .wrapper {
+    height: auto;
+    // overflow: auto;
   }
 }
 
@@ -70,7 +87,7 @@
 }
 
 #hero h1 {
-  font-size: 50px;
+  // font-size: 50px;
   font-weight: 300;
   line-height: 1.2;
   margin-bottom: 8px;
@@ -89,3 +106,5 @@
   max-width: 445px;
   margin: 0 auto;
 }
+
+

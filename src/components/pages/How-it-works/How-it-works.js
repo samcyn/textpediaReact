@@ -1,9 +1,14 @@
+/**
+ * created by Samson Iyanda on 09-10-2018
+ */
+//
+
 import React, { Fragment } from "react";
 
 const HowItWorks = () => (
   <Fragment>
     <span>a TEXT WIKIPEDIA</span>
-    <h1>
+    <h1 className="is-size-1-desktop is-size-3-tablet is-size-3-mobile">
       HOW IT <b>WORKS ?</b>
     </h1>
     <p>
