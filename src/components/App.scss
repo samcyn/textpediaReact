@@ -2,6 +2,7 @@
   height: 100vh;
   overflow: hidden;
   background: #f6f8f9;
+  z-index: 1032;
 }
 
 @media (max-width: 768px) {
@@ -11,6 +12,44 @@
     padding-bottom: 50px;
   }
 }
+
+#bodyClick {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: auto;
+  right: 250px;
+  content: "";
+  z-index: 9999;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1087px) {
+  .nav-open.wrapper {
+    left: 0;
+    -webkit-transform: translate3d(-250px, 0, 0);
+    -moz-transform: translate3d(-250px, 0, 0);
+    -o-transform: translate3d(-250px, 0, 0);
+    -ms-transform: translate3d(-250px, 0, 0);
+    transform: translate3d(-250px, 0, 0);
+  }
+  .wrapper {
+    -webkit-transform: translate3d(0px, 0, 0);
+    -moz-transform: translate3d(0px, 0, 0);
+    -o-transform: translate3d(0px, 0, 0);
+    -ms-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
+    -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    position: relative;
+  }
+}
+
 
 .navbar {
   box-shadow: none !important;
@@ -38,9 +77,9 @@
 }
 
 #hero p {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
-  color: #8da2b5;
+  color: #4a4a4a; //#8da2b5;
   margin-bottom: 0px;
   padding: 0px;
   letter-spacing: 0.05em;

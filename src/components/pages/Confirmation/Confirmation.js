@@ -17,7 +17,8 @@ class Confirmation extends Component {
         value: false,
         touched: false
       }
-    }
+    },
+    isLoading: false
   }
 
   handleChangle = (e) => {
@@ -53,6 +54,10 @@ class Confirmation extends Component {
         token: token
       }
     };
+    //show Loader 
+    this.setState({
+      isLoading: true
+    });
     //post form data
     API.post('confirm', data)
       .then(result => {
@@ -60,14 +65,22 @@ class Confirmation extends Component {
           pathname: '/success',
           state: { result: result.data }
         });
+        // Hide loader
+        this.setState({
+          isLoading: false
+        });
       })
       .catch(err => {
         alert(err.response.data);
+        // Hide loader
+        this.setState({
+          isLoading: false
+        });
       });
   }
 
   render() {
-    const { token, errors } = this.state;
+    const { token, errors, isLoading } = this.state;
     const jwt = this.props.location.state && this.props.location.state.result;
     //Redirect if no JWT is supplied.....
     if (!jwt) {
@@ -97,7 +110,7 @@ class Confirmation extends Component {
           <div className="field ">
             <div className="control">
               {/* reuseable component */}
-              <Button className="is-primary " disabled={!errors.token.value && errors.token.touched }>Submit Token</Button>
+              <Button className={"is-primary "+ (isLoading ? "is-loading" : " ")} disabled={!errors.token.value && errors.token.touched }>Submit Token</Button>
             </div>
           </div>
         </form>

@@ -12,7 +12,8 @@
     "react-dom": "^16.5.2",
     "react-phone-number-input": "^2.2.11",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.4"
+    "react-scripts": "2.0.4",
+    "react-telephone-input": "^4.73.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",

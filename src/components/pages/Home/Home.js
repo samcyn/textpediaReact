@@ -21,6 +21,16 @@ const Home = () => (
       or something like that, the pressures of the day will probably cause you
       to forget. You'd really like to know what the keyword/phrase means so what
       do you do?
+      <br /><br/>
+      You could...
+      <br/><br/>Make a reminder to yourself, imagine having to take a minute
+      or so to covertly type out this reminder while the gist of the meeting
+      passes you by. Not good! Trust in your memory to remember to check out the
+      keyword at the end of the day. Even worse! Spend 10 seconds or less to
+      type out the keyword/phrase and SMS it to Textpedia safe in the knowledge
+      that when you check your mail at the end of the day, you'll have a nicely
+      formatted preliminary report waiting for you. This allows you to decide
+      whether or not you want to dig deeper into the subject. Awesome!
     </p>
   </Fragment>
 );
