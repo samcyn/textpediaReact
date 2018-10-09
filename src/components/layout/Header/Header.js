@@ -8,7 +8,7 @@ const Header = () => (
     <nav className="navbar is-transparent">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
+          <a className="navbar-item navbar-logo" href="https://bulma.io">
             TEXTPEDIA
           </a>
           <div

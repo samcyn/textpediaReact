@@ -6,6 +6,8 @@ import Header from "./layout/Header/Header";
 import HowItWorks from "./pages/How-it-works/How-it-works";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
+import Confirmation from "./pages/Confirmation/Confirmation";
+import Success from "./pages/Success/Success";
 
 class App extends Component {
   render() {
@@ -28,6 +30,8 @@ class App extends Component {
                   <Route exact path='/' component={ Home } />
                   <Route exact path='/register' component={ Register } />
                   <Route exact path='/howitworks' component={ HowItWorks } />
+                  <Route exact path='/confirmation' component={ Confirmation } />
+                  <Route exact path='/success' component={ Success } />
                 </Switch>
               </div>
             </div>

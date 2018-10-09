@@ -12,7 +12,7 @@
 }
 
 #hero {
-  z-index: 10;
+  padding-top: 16px;
 }
 
 #hero span {
@@ -25,6 +25,8 @@
 #hero h1 {
   font-size: 50px;
   font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
 #hero p {
