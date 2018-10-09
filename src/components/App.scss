@@ -4,6 +4,14 @@
   background: #f6f8f9;
 }
 
+@media (max-width: 768px) {
+  .wrapper {
+    height: auto;
+    overflow: auto;
+    padding-bottom: 50px;
+  }
+}
+
 .navbar {
   box-shadow: none !important;
   padding: 8px 0;

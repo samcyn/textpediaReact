@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const apiUrl = process.env.REACT_APP_API_URL;
 export default axios.create({
-  baseURL: "http://localhost:5000/", //https://textpedia-api.herokuapp.com/
+  baseURL: apiUrl, 
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

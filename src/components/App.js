@@ -10,11 +10,24 @@ import Confirmation from "./pages/Confirmation/Confirmation";
 import Success from "./pages/Success/Success";
 
 class App extends Component {
+  state = {
+    openNavBar: false
+  }
+
+  navBarController = () => {
+    this.setState(prevState => {
+      return {
+        openNavBar: !prevState.openNavBar
+      }
+    });
+  }
+
   render() {
+    const { openNavBar }= this.state;
     return (
-      <div className="wrapper">
+      <div className={ "wrapper " + (openNavBar ? "open" : " ")}>
         {/* H  E A D E R */}
-        <Header/>
+        <Header toggleNavBar = { this.navBarController }/>
 
         <section id="hero">
           <div className="container">
