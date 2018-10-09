@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import "./Register.css";
+import Button from "../../common/Button/Button";
 
 const Register = () => (
   <Fragment>
@@ -7,25 +8,24 @@ const Register = () => (
     <h1>SIGN UP</h1>
 
     <form className="form">
-      <div class="field">
-        <label class="label has-text-primary">Phone Number</label>
-        <div class="control">
-          <input class="input" type="number" placeholder="Phone Number" />
+      <div className="field">
+        <label className="label has-text-primary">Phone Number</label>
+        <div className="control">
+          <input className="input" type="number" placeholder="Phone Number" />
         </div>
         {/* <p class="help">This is a help text</p> */}
       </div>
-      <div class="field">
-        <label class="label has-text-primary">Email Address</label>
-        <div class="control">
-          <input class="input" type="email" placeholder="Email Address" />
+      <div className="field">
+        <label className="label has-text-primary">Email Address</label>
+        <div className="control">
+          <input className="input" type="email" placeholder="Email Address" />
         </div>
         {/* <p class="help">This is a help text</p> */}
       </div>
       <div className="field ">
         <div className="control">
-          <button type="submit" className="button is-primary">
-            Sign Up
-          </button>
+          {/* reuseable component */}
+          <Button className="is-primary">Sign Up</Button>
         </div>
       </div>
     </form>

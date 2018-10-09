@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => (
@@ -22,9 +23,15 @@ const Header = () => (
 
         <div id="navbarExampleTransparentExample" className="navbar-menu">
           <div className="navbar-end">
-            <a className="navbar-item" href="https://bulma.io/">
+            <NavLink className="navbar-item" to="/" exact activeClassName="active">
               Home
-            </a>
+            </NavLink>
+            <NavLink className="navbar-item" to="/register" activeClassName="active">
+              Sign Up
+            </NavLink>
+            <NavLink className="navbar-item" to="/howitworks" activeClassName="active">
+              How It Works
+            </NavLink>
           </div>
         </div>
       </div>
