@@ -78,7 +78,7 @@ class Confirmation extends Component {
         });
       })
       .catch(err => {
-        console.log({ err });
+        // console.log({ err });
         const message = errorHandler(err);
         alert(message);
 
