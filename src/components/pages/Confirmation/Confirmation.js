@@ -50,7 +50,9 @@ class Confirmation extends Component {
   // S U B M I T - F O R M
   handleFormSubmit = e => {
     e.preventDefault();
-    const jwt = this.props.location.state ? this.props.location.state.result : "";
+    const jwt = this.props.location.state
+      ? this.props.location.state.result
+      : "";
     const { token } = this.state;
 
     let data = {
@@ -76,9 +78,10 @@ class Confirmation extends Component {
         });
       })
       .catch(err => {
+        console.log({ err });
         const message = errorHandler(err);
         alert(message);
-        
+
         // H I D E - L O A D E R
         this.setState({
           isLoading: false
@@ -96,7 +99,9 @@ class Confirmation extends Component {
     return (
       <Fragment>
         <span>TRY TEXTPEDIA</span>
-        <h1>VERIFICATION</h1>
+        <h1 className="is-size-1-desktop is-size-3-tablet is-size-3-mobile">
+          VERIFICATION
+        </h1>
         <p>We have sent you an email with your auth token.</p>
         <form className="form" onSubmit={this.handleFormSubmit}>
           <div className="field">

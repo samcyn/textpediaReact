@@ -101,6 +101,7 @@ class Register extends Component {
       });
     })
     .catch(err => {
+      console.log({err});
       const errMessage = errorHandler(err);
       alert(errMessage);
       // H I D E L O A D E R
